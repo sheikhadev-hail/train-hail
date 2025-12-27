@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - المؤسسة العامة لتدريب المهني والتقني</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-images">
+                    <img src="TVTV.logo.png" alt="شعار المؤسسة العامة للتعليم التدريب المهني والتقني" class="logo-image">
+                    <img src="HRSD.logo.png" alt="شعار وزارة الموارد البشرية والتنمية الاجتماعية" class="logo-image">
+                </div>
+                <div class="logo-text">
+                    <h1>المؤسسة العامة لتدريب المهني والتقني</h1>
+                    <h2>فرع حائل - لوحة التحكم</h2>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="courses.html">الدورات</a></li>
+                    <li><a href="register.html">التسجيل</a></li>
+                    <li><a href="certificates.html">الشهادات</a></li>
+                    <li><a href="dashbord.html" class="active">لوحة التحكم</a></li>
+                    <li><a href="#" id="logoutBtn">تسجيل الخروج</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Dashboard Header -->
+            <section class="dashboard-header">
+                <h1>لوحة التحكم</h1>
+                <p>مرحباً بك في لوحة تحكم الدورات التدريبية</p>
+            </section>
+
+            <!-- Dashboard Stats -->
+            <section class="dashboard-stats">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>إجمالي الدورات</h3>
+                        <p id="totalCourses">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>إجمالي المسجلين</h3>
+                        <p id="totalRegistrations">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>الدورات النشطة</h3>
+                        <p id="activeCourses">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Course Management -->
+            <section class="course-management">
+                <div class="section-header">
+                    <h2>إدارة الدورات</h2>
+                    <button class="btn btn-primary" id="addCourseBtn">
+                        <i class="fas fa-plus"></i> إضافة دورة جديدة
+                    </button>
+                </div>
+
+                <!-- Courses Table -->
+                <div class="table-container">
+                    <table class="courses-table">
+                        <thead>
+                            <tr>
+                                <th>اسم الدورة</th>
+                                <th>الوصف</th>
+                                <th>القاعة التدريبية</th>
+                                <th>عدد المسجلين</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="coursesTableBody">
+                            <!-- Courses will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Registrations Management -->
+            <section class="registrations-management">
+                <div class="section-header">
+                    <h2>إدارة التسجيلات</h2>
+                    <button class="btn btn-secondary" id="exportExcelBtn">
+                        <i class="fas fa-download"></i> تصدير إلى Excel
+                    </button>
+                </div>
+
+                <!-- Registrations Table -->
+                <div class="table-container">
+                    <table class="registrations-table">
+                        <thead>
+                            <tr>
+                                <th>اسم الدورة</th>
+                                <th>اسم المتدرب</th>
+                                <th>رقم الجوال</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>رقم الهوية</th>
+                                <th>المؤهل العلمي</th>
+                                <th>مكان العمل</th>
+                                <th>تاريخ التسجيل</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrationsTableBody">
+                            <!-- Registrations will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Add/Edit Course Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">إضافة دورة جديدة</h2>
+            <form id="courseForm" class="course-form">
+                <div class="form-group">
+                    <label for="courseName">اسم الدورة</label>
+                    <input type="text" id="courseName" name="courseName" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseDescription">وصف الدورة</label>
+                    <textarea id="courseDescription" name="courseDescription" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="trainingHall">القاعة التدريبية</label>
+                    <input type="text" id="trainingHall" name="trainingHall" value="القاعه التدريبية" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseStatus">حالة الدورة</label>
+                    <select id="courseStatus" name="courseStatus" required>
+                        <option value="active">نشطة</option>
+                        <option value="inactive">غير نشطة</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">حفظ الدورة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-phone"></i> 0534630161</p>
+                    <p><i class="fas fa-envelope"></i> sheikhaalbander@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="dashbord.html">لوحة التحكم</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sheikha-albander-255150261" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/hrsdhail?s=21" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 المؤسسة العامة لتدريب المهني والتقني. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+<!-- Developers Section -->
+    <div class="developers">
+        <div class="container">
+            <h3>المطورون</h3>
+            <div class="developers-grid">
+                <div class="developer-card">
+                    <div class="developer-avatar">SH</div>
+                    <h4>Sheikha alshammari</h4>
+                    <p><i class="fas fa-envelope"></i> Sheikhaalbander@gmail.com</p>
+                    <a href="https://www.linkedin.com/in/sheikha-albander-255150261" target="_blank" class="linkedin-link"><i class="fab fa-linkedin"></i> منصة لنكد إن</a>
+                </div>
+                <!-- Developer 2 -->
+            <div class="developer-card">
+                <div class="developer-avatar">SA</div>
+                <h4>Salma Alazmi</h4>
+                <p><i class="fas fa-envelope"></i>salmaall11233@gmail.com</p>
+                <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> منصة لنكد إن
+                </a>
+            </div>
+            <!-- Developer 3 -->
+            <div class="developer-card">
+                <div class="developer-avatar">RS</div>
+                <h4>Remas Alshammri</h4>
+                <p><i class="fas fa-envelope"></i> rimasalshammri@gmail.com</p>
+                <a href="https://www.linkedin.com/in/remas-alshammri-169366353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> منصة لنكد إن
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="script.js?v=2024101801"></script>
+</body>
+</html>

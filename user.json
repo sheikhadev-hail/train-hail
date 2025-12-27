@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin-m",
+      "password": "mohmd77",
+      "role": "admin",
+      "fullName": "مدير المركز",
+      "email": "admin@training.gov.sa",
+      "phone": ""
+    },
+    {
+      "id": 2,
+      "username": "vol-ahood",
+      "password": "ahood7",
+      "role": "admin",
+      "fullName": "مسؤولة التطوع",
+      "email": "volunteer@training.gov.sa",
+      "phone": ""
+    },
+    {
+      "id": 3,
+      "username": "dev-sheikha",
+      "password": "sheikha8",
+      "role": "admin",
+      "fullName": "مطورة شيخة",
+      "email": "sheikhaalbander@gmail.com",
+      "phone": ""
+    },
+    {
+      "id": 4,
+      "username": "dev-salma",
+      "password": "salma9",
+      "role": "admin",
+      "fullName": "مطورة سلمى",
+      "email": "salma@training.gov.sa",
+      "phone": ""
+    },
+    {
+      "id": 5,
+      "username": "dev-reemass",
+      "password": "rmmas10",
+      "role": "admin",
+      "fullName": "مطورة ريماس",
+      "email": "reemass@training.gov.sa",
+      "phone": ""
+    }
+  ],
+  "developers": [
+    {
+      "id": 1,
+      "name": "Sheikha alshammari",
+      "initials": "SH",
+      "email": "Sheikhaalbander@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/sheikha-albander-255150261",
+      "role": "مطور رئيسي"
+      
+    },
+    {
+      "id": 2,
+        "name": "Salma Alazmi",
+        "initials": "SA",
+        "email": "salmaall11233@gmail.com",
+        "linkedin": "http://linkedin.com/in/salmaalazmi",
+        "role": "مطوّر رئيسي"
+    },
+    {
+      "id": 3,
+        "name": "Remas Alshammri",
+        "initials": "RS",
+        "email": " rimasalshammri@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/remas-alshammri-169366353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "role": "مطوّر رئيسي"
+    }
+    
+  ],
+  "institution": {
+    "name": "المؤسسة العامة لتدريب المهني والتقني",
+    "branch": "فرع حائل",
+    "phone": "0534630161",
+    "email": "Sheikhaalbander@gmail.com",
+    "address": "حائل، المملكة العربية السعودية",
+    "twitter": "https://x.com/hrsdhail?s=21",
+    "linkedin": "https://www.linkedin.com/in/sheikha-albander-255150261"
+  }
+}

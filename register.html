@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل - المؤسسة العامة لتدريب المهني والتقني</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-images">
+                    <img src="TVTV.logo.png" alt="شعار المؤسسة العامة للتعليم التدريب المهني والتقني" class="logo-image">
+                    <img src="HRSD.logo.png" alt="شعار وزارة الموارد البشرية والتنمية الاجتماعية" class="logo-image">
+                </div>
+                <div class="logo-text">
+                    <h1>المؤسسة العامة لتدريب المهني والتقني</h1>
+                    <h2>فرع حائل</h2>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="courses.html">الدورات</a></li>
+                    <li><a href="register.html" class="active">التسجيل</a></li>
+                    <li><a href="certificates.html">الشهادات</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Page Header -->
+            <section class="page-header">
+                <h1>إنشاء حساب</h1>
+                <p>سجل حسابك للتمكن من التقديم على الدورات وإدارة بياناتك</p>
+            </section>
+
+            <!-- Register Section -->
+            <section class="login-section">
+                <div class="login-container">
+                    <h2>التسجيل السريع للزوار</h2>
+                    
+                    <!-- Visitor Registration Form (No Password Required) -->
+                    <form id="visitorRegisterForm" class="login-form">
+                        <div class="form-header">
+                            <h3><i class="fas fa-user"></i> تسجيل زائر جديد</h3>
+                            <p>سجل بياناتك للتمكن من التسجيل في الدورات بسهولة</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="visitorFullName">الاسم الكامل <span class="required">*</span></label>
+                            <input type="text" id="visitorFullName" name="fullName" required placeholder="ادخل اسمك الكامل">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="visitorPhone">رقم الجوال <span class="required">*</span></label>
+                            <input type="tel" id="visitorPhone" name="phone" required placeholder="05xxxxxxxx">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="visitorEmail">البريد الإلكتروني (اختياري)</label>
+                            <input type="email" id="visitorEmail" name="email" placeholder="your@email.com">
+                            <small>لن تحتاج كلمة مرور، سيتم حفظ رقم الجوال كمرجع</small>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success btn-full">
+                            <i class="fas fa-user-plus"></i> إنشاء حساب الزائر
+                        </button>
+                    </form>
+
+                    <div class="login-info">
+                        <h3>فوائد الحساب:</h3>
+                        <div class="login-credentials">
+                            <div class="credential-item">
+                                <h4>التسجيل السريع</h4>
+                                <p>التقديم على الدورات بدون إعادة إدخال بياناتك في كل مرة</p>
+                            </div>
+                            <div class="credential-item">
+                                <h4>إدارة طلباتك</h4>
+                                <p>متابعة حالة طلبات التسجيل الخاصة بك بسهولة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-phone"></i> 0534630161</p>
+                    <p><i class="fas fa-envelope"></i> sheikhaalbander@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="certificates.html">الشهادات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sheikha-albander-255150261" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/hrsdhail?s=21" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 المؤسسة العامة لتدريب المهني والتقني. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // تسجيل زائر بدون كلمة مرور
+        const isApiAvailable = typeof window.apiClient !== 'undefined';
+
+        document.getElementById('visitorRegisterForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                fullName: document.getElementById('visitorFullName').value,
+                phone: document.getElementById('visitorPhone').value,
+                email: document.getElementById('visitorEmail').value || null
+            };
+
+            if (isApiAvailable) {
+                try {
+                    const response = await fetch('/api/auth/visitor-register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (!response.ok) {
+                        const result = await response.json().catch(() => ({}));
+                        throw new Error(result.error || `HTTP ${response.status}`);
+                    }
+
+                    const result = await response.json();
+
+                    alert('تم إنشاء حساب الزائر بنجاح!');
+                    
+                    // حفظ بيانات الجلسة القادمة من الخادم
+                    if (result.token) {
+                        localStorage.setItem('token', result.token);
+                    }
+                    localStorage.setItem('userType', 'visitor');
+                    localStorage.setItem('userData', JSON.stringify(result.visitor || formData));
+                    localStorage.setItem('currentUser', JSON.stringify({
+                        role: 'visitor',
+                        username: result?.visitor?.phone || formData.phone,
+                        fullName: result?.visitor?.fullName || formData.fullName,
+                        phone: result?.visitor?.phone || formData.phone,
+                        email: result?.visitor?.email || formData.email
+                    }));
+                    
+                    window.location.href = 'courses.html';
+                    return;
+                } catch (error) {
+                    console.warn('Visitor register API failed, using local fallback.', error);
+                }
+            }
+
+            // Fallback: تخزين البيانات محلياً عند عدم توفر الخادم
+            const existingList = JSON.parse(localStorage.getItem('visitorRegistrations') || '[]');
+            const alreadyExists = existingList.some(entry => entry.phone === formData.phone);
+
+            if (alreadyExists) {
+                alert('هذا الرقم مسجل مسبقاً في الوضع المحلي.');
+                return;
+            }
+
+            const localRecord = {
+                id: Date.now(),
+                fullName: formData.fullName,
+                phone: formData.phone,
+                email: formData.email,
+                createdAt: new Date().toISOString()
+            };
+
+            existingList.push(localRecord);
+            localStorage.setItem('visitorRegistrations', JSON.stringify(existingList));
+
+            localStorage.setItem('userType', 'visitor');
+            localStorage.setItem('userData', JSON.stringify(localRecord));
+            localStorage.setItem('currentUser', JSON.stringify({
+                role: 'visitor',
+                username: formData.phone,
+                fullName: formData.fullName,
+                phone: formData.phone,
+                email: formData.email
+            }));
+
+            alert('تم إنشاء حساب الزائر بنجاح! (وضع بدون خادم)');
+            window.location.href = 'courses.html';
+        });
+
+        // التحقق من صحة رقم الجوال العربي
+        document.getElementById('visitorPhone').addEventListener('input', function() {
+            const phone = this.value;
+            const saudiPhoneRegex = /^05[0-9]{8}$/;
+            
+            if (phone.length > 0 && !saudiPhoneRegex.test(phone)) {
+                this.setCustomValidity('يجب أن يبدأ رقم الجوال بـ 05 ويكون 10 أرقام');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+    <script src="api-client.js"></script>
+    <script src="script.js?v=2024101801"></script>
+</body>
+</html>
+
